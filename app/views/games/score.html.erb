@@ -1,0 +1,8 @@
+<!-- app/views/games/score.html.erb -->
+<div class="container">
+  <h1>Résultat</h1>
+  <p><%= @result %></p>
+  <p>Votre score pour ce mot : <%= @score %></p>
+  <p>Score total : <%= @total_score %></p>
+  <%= link_to 'Nouvelle partie', new_path, class: 'btn btn-primary' %>
+</div>

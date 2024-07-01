@@ -1,0 +1,16 @@
+<!-- app/views/games/new.html.erb -->
+<div class="container">
+  <h1>Le Mot Le Plus Long</h1>
+  <p>Voici votre grille :</p>
+  <p><%= @letters.join(" ") %></p>
+
+  <%= form_with url: '/score', data: {turbo: false}, method: :post, local: true do |form| %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters.join(" ") %>
+    <div class="mb-3">
+      <%= form.label :word, "Votre mot en anglais" %>
+      <%= form.text_field :word, class: "form-control" %>
+    </div>
+    <%= form.submit "Vérifier", class: "btn btn-primary" %>
+  <% end %>
+</div>
